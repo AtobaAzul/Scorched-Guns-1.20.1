@@ -215,9 +215,6 @@ public class ProjectileEntity extends Entity implements IEntityAdditionalSpawnDa
 
 
             //Only play if there's a nearby player. Also ignore weapons that shoot more than 1 proj to prevent deafening players irl.
-            System.out.println(this.tickCount);
-            System.out.println(this.soundTime);
-            System.out.println(soundTime < this.tickCount - 3);
             if (!players.isEmpty() && flybySound != null && modifiedGun.getGeneral().getProjectileAmount() == 1 && this.tickCount > 3 && soundTime < this.tickCount - 3) {
                 this.level().playSound(null, startVec.x,startVec.y,startVec.z, ForgeRegistries.SOUND_EVENTS.getValue(flybySound), SoundSource.NEUTRAL, (float) 0.5F + this.level().getRandom().nextFloat() * 0.4F, 0.8F + this.level().getRandom().nextFloat() * 0.4F);
                 this.soundTime = this.tickCount;
