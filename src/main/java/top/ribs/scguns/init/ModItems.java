@@ -1,5 +1,11 @@
 package top.ribs.scguns.init;
 
+import immersive_aircraft.WeaponRegistry;
+import immersive_aircraft.cobalt.registration.Registration;
+import immersive_aircraft.item.WeaponItem;
+import net.minecraft.core.registries.BuiltInRegistries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.server.packs.resources.Resource;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.*;
@@ -12,6 +18,7 @@ import top.ribs.scguns.Reference;
 import top.ribs.scguns.ScorchedGuns;
 import top.ribs.scguns.common.Attachments;
 import top.ribs.scguns.common.GunModifiers;
+import top.ribs.scguns.entity.weapon.AircraftMachineGun;
 import top.ribs.scguns.item.*;
 import top.ribs.scguns.item.ammo_boxes.*;
 
@@ -22,8 +29,10 @@ import top.ribs.scguns.item.attachment.impl.UnderBarrel;
 
 import java.lang.reflect.Constructor;
 
-    public class ModItems {
-        public static final DeferredRegister<Item> REGISTER = DeferredRegister.create(ForgeRegistries.ITEMS, Reference.MOD_ID);
+import static top.ribs.scguns.Reference.MOD_ID;
+
+public class ModItems {
+        public static final DeferredRegister<Item> REGISTER = DeferredRegister.create(ForgeRegistries.ITEMS, MOD_ID);
 
         public static RegistryObject<Item> ANTHRALITE_KNIFE;
         public static RegistryObject<GunItem> GALE;
@@ -387,10 +396,8 @@ import java.lang.reflect.Constructor;
     public static final RegistryObject<Item> ZOMBIFIED_HORNLIN_SPAWN_EGG = REGISTER.register("zombified_hornlin_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.ZOMBIFIED_HORNLIN, 0xe67973, 0x9c3f69, new Item.Properties()));
     public static final RegistryObject<Item> BLUNDERER_SPAWN_EGG = REGISTER.register("blunderer_spawn_egg", () -> new ForgeSpawnEggItem(ModEntities.BLUNDERER, 0x32663c, 0x98a2a2, new Item.Properties()));
 
-
     public static void register(IEventBus eventBus) {
         REGISTER.register(eventBus);
     }
-
 
 }

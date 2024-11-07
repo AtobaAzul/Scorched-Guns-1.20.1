@@ -55,7 +55,7 @@ public class ScorchedGuns {
     public static boolean ieLoaded;
     public static boolean valkyrienSkiesLoaded;
     public static boolean marjLoaded;
-
+    public static boolean aircraftLoaded;
 
     public ScorchedGuns() {
         // Common setup
@@ -95,6 +95,7 @@ public class ScorchedGuns {
         ModLootModifiers.LOOT_MODIFIERS.register(bus);
         ModPointOfInterestTypes.REGISTER.register(bus);
         ModRecipes.register(modEventBus);
+        AircraftItems.init();
 
         bus.addListener(this::onCommonSetup);
 
@@ -128,6 +129,7 @@ public class ScorchedGuns {
         ieLoaded = ModList.get().isLoaded("immersiveengineering");
         mekanismLoaded = ModList.get().isLoaded("mekanism");
         marjLoaded = ModList.get().isLoaded("majruszsdifficulty");
+        aircraftLoaded = ModList.get().isLoaded("immersiveaircraft");
     }
 
     private void onCommonSetup(FMLCommonSetupEvent event) {
